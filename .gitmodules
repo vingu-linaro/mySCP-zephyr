@@ -1,0 +1,3 @@
+[submodule "src/SCP-firmware"]
+	path = src/SCP-firmware
+	url = https://github.com/vingu-linaro/SCP-firmware.git

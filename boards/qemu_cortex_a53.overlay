@@ -1,0 +1,30 @@
+/*
+ * Copyright (c) 2019 Linaro Limited
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+#include <dt-bindings/interrupt-controller/arm-gic.h>
+
+/ {
+	virtio_mmio0: virtio_mmio@a003e00 {
+		dma-coherent;
+		compatible = "virtio-mmio";
+		reg = <0xa003e00 0x200>;
+		status = "okay";
+		interrupts = <GIC_SPI 0x2f IRQ_TYPE_EDGE IRQ_DEFAULT_PRIORITY>;
+		interrupt-parent = <&gic>;
+		label = "VIRTIO_0";
+	};
+
+	virtio_mmio1: virtio_mmio@a003c00 {
+		dma-coherent;
+		compatible = "virtio-mmio";
+		reg = <0xa003c00 0x200>;
+		status = "okay";
+		interrupts = <GIC_SPI 0x2e IRQ_TYPE_EDGE IRQ_DEFAULT_PRIORITY>;
+		interrupt-parent = <&gic>;
+		label = "VIRTIO_1";
+	};
+
+};
+
