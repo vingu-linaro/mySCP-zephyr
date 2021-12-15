@@ -13,16 +13,21 @@
 		status = "okay";
 		ranges;
 
-		res0: res0@407ff000 {
-			reg = <0x407ff000 0x1000>;
-			label = "res0";
+		vmram0: vmram@90c0000 {
+			status = "okay";
+			reg = < 0x90c0000 0x80000 >;
+			device_type = "memory";
+			label = "vmram0";
 		};
 
-		res1: res1@407fe000 {
-			reg = <0x407fe000 0x1000>;
-			label = "res1";
+		vmram1: vmram@90d0000 {
+			status = "okay";
+			reg = < 0x9140000 0x80000 >;
+			device_type = "memory";
+			label = "vmram1";
 		};
 	};
+
 
 	virtio_mmio0: virtio_mmio@a003e00 {
 		dma-coherent;
@@ -31,8 +36,9 @@
 		status = "okay";
 		interrupts = <GIC_SPI 0x2f IRQ_TYPE_EDGE IRQ_DEFAULT_PRIORITY>;
 		interrupt-parent = <&gic>;
-		label = "VIRTIO_0";
-		memory-region = <&res0>;
+		label = "virtio_mmio0";
+		memory-region = <&vmram0>;
+		device-mode;
 	};
 
 	virtio_mmio1: virtio_mmio@a003c00 {
@@ -42,8 +48,9 @@
 		status = "okay";
 		interrupts = <GIC_SPI 0x2e IRQ_TYPE_EDGE IRQ_DEFAULT_PRIORITY>;
 		interrupt-parent = <&gic>;
-		label = "VIRTIO_1";
-		memory-region = <&res1>;
+		label = "virtio_mmio1";
+		memory-region = <&vmram1>;
+		device-mode;
 	};
 
 };
