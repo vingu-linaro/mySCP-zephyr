@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-#include <fmw_backend.h>
+#include <arch_main.h>
 
 #include <zephyr.h>
 #include <sys/printk.h>
@@ -14,6 +14,6 @@ void main(void)
 {
 	printk("Starting virtio scmi backend %s\n", CONFIG_BOARD);
 
-	start_scmi_backend();
+	scmi_arch_init();
 
 }
